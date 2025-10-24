@@ -27,8 +27,8 @@ public class GrievanceService {
 		return grievanceMapper.toDto(grievance);
 	}
 	
-	public List<GrievanceDto> getUserGrievance(Long userId){
-		List<Grievance> list=grievanceRepository.findByUserId(userId);
+	public List<GrievanceDto> getUserGrievance(String username){
+		List<Grievance> list=grievanceRepository.findByUsername(username);
 		List<GrievanceDto> grievanceDtos=grievanceMapper.toList(list);
 		return grievanceDtos;
 	}

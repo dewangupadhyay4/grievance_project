@@ -9,6 +9,6 @@ import com.grievance.resolve.entity.Grievance;
 
 public interface GrievanceRepository extends JpaRepository<Grievance, Long>{
 	
-		List<Grievance> findByUserId(Long userId);
+		List<Grievance> findByUsername(String username);
 	
 }

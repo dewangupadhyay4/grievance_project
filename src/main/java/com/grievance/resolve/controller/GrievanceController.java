@@ -33,15 +33,15 @@ public class GrievanceController {
 	@PostMapping("/raise")
 	public ResponseEntity<GrievanceDto> raiseGrievance(@RequestBody GrievanceDto dto){
 		
-		UserRegistration user=userRegistrationRepository.findById(dto.getId()).orElseThrow(()->new RuntimeException("User Not Found"));
+		UserRegistration user=userRegistrationRepository.findByUsername(dto.getUsername()).orElseThrow(()->new RuntimeException("User Not Found"));
 		
 		GrievanceDto saved=grievanceService.createGrievance(dto);
 		return new ResponseEntity(saved, HttpStatus.CREATED);
 	}
 	
-	@GetMapping("/user/{userId}")
-	public ResponseEntity<List<GrievanceDto>> getUserGrievances(@PathVariable Long userId){
-		List<GrievanceDto> list=grievanceService.getUserGrievance(userId);
+	@GetMapping("/user/{username}")
+	public ResponseEntity<List<GrievanceDto>> getUserGrievances(@PathVariable String username){
+		List<GrievanceDto> list=grievanceService.getUserGrievance(username);
 		return ResponseEntity.ok(list);
 	}
 

@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
 public class GrievanceDto {
 
 	private Long id;
-	private Long userId;
+	private String username;
 	private String title;
 	private String description;
 	private Double lattitude;
