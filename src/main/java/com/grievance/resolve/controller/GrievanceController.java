@@ -44,5 +44,11 @@ public class GrievanceController {
 		List<GrievanceDto> list=grievanceService.getUserGrievance(username);
 		return ResponseEntity.ok(list);
 	}
+	
+	@GetMapping("/user/ticket/{ticket}")
+	public ResponseEntity<GrievanceDto> getGrievanceTickets(@PathVariable String ticket){
+		GrievanceDto grievanceDto=grievanceService.getGrievanceByTicket(ticket);
+		return new ResponseEntity<>(grievanceDto,HttpStatus.OK);
+	}
 
 }
