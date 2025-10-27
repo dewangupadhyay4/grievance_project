@@ -32,6 +32,7 @@ public class Grievance {
 	private Double lattitude;
 	private Double Longitude;
 	private String department;
+	private String ticketNumber;
 	private String status="pending";
 	private LocalDateTime createdAt=LocalDateTime.now();
 	

@@ -21,7 +21,8 @@ public class SecurityConfiguration {
 						"/api/grievances/user/{userId}",
 						"/api/auth/login/verify-otp",
 						"/api/grievances/raise",
-						"/api/auth/login/password"
+						"/api/auth/login/password",
+						"api/grievances/user/ticket/**"
 						).permitAll()
 		.anyRequest().authenticated());
 		return http.build();
