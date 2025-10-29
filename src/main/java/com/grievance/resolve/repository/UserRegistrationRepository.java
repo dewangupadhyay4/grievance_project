@@ -13,6 +13,7 @@ public interface UserRegistrationRepository extends JpaRepository<UserRegistrati
 	boolean existsByPhone(long phone);
 	Optional<UserRegistration> findByEmail(String email);
 	Optional<UserRegistration> findByUsername(String username);
-	
+    boolean existsByUsername(String username);
+
 	
 }
