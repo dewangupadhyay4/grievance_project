@@ -1,19 +1,20 @@
 # Use Eclipse Temurin (official OpenJDK builds)
 FROM eclipse-temurin:21-jdk
 
+# Set working directory
 WORKDIR /app
 
-# Copy all files into the container
+# Copy all project files
 COPY . .
 
-# Give mvnw executable permission (fixes "exit code: 126")
+# Make the Maven wrapper executable
 RUN chmod +x mvnw
 
-# Build the project
+# Build the Spring Boot project without running tests
 RUN ./mvnw clean package -DskipTests
 
-# Expose your app port
+# Expose your application port
 EXPOSE 9012
 
-# Run the Spring Boot app
-CMD ["java", "-jar", "target/your-app.jar"]
+# Automatically detect and run the generated JAR file
+CMD ["sh", "-c", "java -jar target/*.jar"]
